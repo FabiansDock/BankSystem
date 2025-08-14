@@ -1,20 +1,27 @@
 package system.bank.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "account_applications")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AccountApplication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ApplicationID")
-    private Long applicationId;
+    private int applicationId;
 
     @ManyToOne
-    @JoinColumn(name = "CustomerID", nullable = false)
-    private User customerId;
+    @JoinColumn(name = "UserID", nullable = false)
+    private User userId;
 
     @Column(name = "ApplicationDate")
     private LocalDateTime applicationDate;
@@ -23,7 +30,7 @@ public class AccountApplication {
     private String status;
 
     @Column(name = "ApprovedBy")
-    private Long approvedBy; // EmployeeID reference
+    private int approvedBy; // EmployeeID reference
 
     // Getters and Setters
 }

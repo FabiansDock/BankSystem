@@ -1,15 +1,21 @@
 package system.bank.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "roles")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RoleId")
-    private Long roleId;
+    private int roleId;
 
     @Column(name = "RoleName", unique = true, nullable = false)
     private String roleName;

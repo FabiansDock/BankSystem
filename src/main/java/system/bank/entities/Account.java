@@ -1,18 +1,24 @@
 package system.bank.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import system.bank.enums.AccountType;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "accounts")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "AccountID")
-    private Long accountId;
+    private int accountId;
 
     @Column(name = "AccountNumber", nullable = false, unique = true)
     private String accountNumber;
@@ -30,7 +36,7 @@ public class Account {
 
     @ManyToOne
     @JoinColumn(name = "BranchID", nullable = false)
-    private Long branchId;
+    private int branchId;
 
     @Column(name = "IsApproved")
     private Boolean isApproved;
