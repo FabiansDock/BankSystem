@@ -18,7 +18,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "AccountID")
-    private int accountId;
+    private Integer accountId;
 
     @Column(name = "AccountNumber", nullable = false, unique = true)
     private String accountNumber;
@@ -31,12 +31,12 @@ public class Account {
     private AccountType accountType;
 
     @ManyToOne
-    @JoinColumn(name = "CustomerID", nullable = false)
-    private User customerId;
+    @JoinColumn(name = "UserID", nullable = false)
+    private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "BranchID", nullable = false)
-    private int branchId;
+//    @ManyToOne
+//    @JoinColumn(name = "BranchID", nullable = false)
+//    private Integer branchId;
 
     @Column(name = "IsApproved")
     private Boolean isApproved;

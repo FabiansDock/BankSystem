@@ -16,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "UserID")
-    private int userId;
+    private Integer userId;
 
     @Column(name = "SerialID", unique = true, nullable = false)
     private String serialId;
@@ -41,11 +41,11 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RoleID", nullable = false)
-    private int roleId;
+    private Role role;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BranchID", nullable = false)
-    private int branchId;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "Branch", nullable = false)
+//    private Branch branch;
 
     @Column(name = "UserName", unique = true, nullable = false)
     private String userName;

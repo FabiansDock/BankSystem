@@ -17,11 +17,11 @@ public class AccountApplication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ApplicationID")
-    private int applicationId;
+    private Integer applicationId;
 
     @ManyToOne
     @JoinColumn(name = "UserID", nullable = false)
-    private User userId;
+    private User user;
 
     @Column(name = "ApplicationDate")
     private LocalDateTime applicationDate;
@@ -30,7 +30,6 @@ public class AccountApplication {
     private String status;
 
     @Column(name = "ApprovedBy")
-    private int approvedBy; // EmployeeID reference
+    private Integer approvedBy; // EmployeeID reference
 
-    // Getters and Setters
 }
