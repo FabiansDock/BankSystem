@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,12 +17,12 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int branchId;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name = "branch_name",nullable = false, unique = true, length = 50)
+    private String branchName;
 
-    @Column(nullable = false)
-    private String address;
+    @Column(name = "branch_address",nullable = false, length = 500)
+    private String branchAddress;
 
-    @Column(nullable = false)
+    @Column(name = "user_id",nullable = true, unique = true, length = 100)
     private String managerId;
 }

@@ -18,15 +18,15 @@ public class AuditLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int logId;
 
-    @Column(nullable = false)
+    @Column(name = "action",nullable = false, length = 60)
     private String action;
 
-    @Column(nullable = false)
-    private int userId;
+    @Column(name = "user_id",nullable = false, length = 100)
+    private String userId;
 
-    @Column(nullable = false)
+    @Column(name = "date",nullable = false, length = 50)
     private LocalDateTime date;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(name ="details", nullable = true, columnDefinition = "TEXT")
     private String details;
 }
